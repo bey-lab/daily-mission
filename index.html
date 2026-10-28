@@ -23,7 +23,7 @@ const quantity=r=>Math.max(1,Math.min(999,Number(r.quantity)||1));
 const sum=rs=>rs.reduce((n,r)=>n+quantity(r),0);
 const today=()=>state.records.filter(r=>r.date===now());
 const real=()=>state.records.filter(r=>r.location!=="ギャル");
-const counts=()=>({all:sum(state.records),real:sum(real()),days:new Set(state.records.map(r=>r.date)).size,near:sum(state.records.filter(r=>r.location==="近所")),conversation:sum(state.records.filter(r=>["軽い会話","長い会話"].includes(r.kind))});
+const counts=()=>({all:sum(state.records),real:sum(real()),days:new Set(state.records.map(r=>r.date)).size,near:sum(state.records.filter(r=>r.location==="近所")),conversation:sum(state.records.filter(r=>["軽い会話","長い会話"].includes(r.kind)))});
 const achievements=[
 {id:"hello",label:"はじめまして！",desc:"最初の交流を記録",ok:c=>c.all>=1,reply:"うわ、初記録！ これからよろしくー！"},
 {id:"ten",label:"遠慮はいらねえ！",desc:"累計10回の交流",ok:c=>c.all>=10,reply:"もう10回！？ あたしの話、間違ってたらツッコんでいいからね！"},
